@@ -8,7 +8,6 @@
 
 Este projeto visa implementar algumas funcionalidades através de três serviços, como uma aplicação frontend rodando a partir do S3, uma aplicação backend com alguma funcionalidade básica e a implementação de lambda para um processo programado em determinado horário. Foi aplicado no projeto a integração com o GitHub de forma manual, para manter um repositório ativo e na sequência, implementação do CI/CD utilizando o GitHub Actions.
 
-![alt text](image.png)
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
 
