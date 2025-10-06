@@ -1,0 +1,9 @@
+# Ignorar arquivos gerados pelo Terraform
+.terraform/
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
+
+# Ignorar arquivos grandes específicos
+terraform/terraform/providers/

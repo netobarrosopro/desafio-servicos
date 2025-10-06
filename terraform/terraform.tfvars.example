@@ -1,0 +1,6 @@
+aws_region = "us-east-1"
+bucket_name = "desafioservico-static-site"
+cluster_name = "desafioservico-eks"
+node_instance_type = "t3.medium"
+lambda_function_name = "desafioservico-daily-upload"
+s3_destination_bucket = "desafioservico-lambda-uploads"
