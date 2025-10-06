@@ -6,14 +6,7 @@
 
 ## 📝 Descrição
 
-Este projeto visa implementar uma esteira completa de **Integração Contínua (CI)** e **Entrega/Implantação Contínua (CD)** para a aplicação **[Nome da Aplicação]**. O objetivo principal é automatizar todo o ciclo de vida do desenvolvimento, desde a escrita do código até a entrega final em produção, garantindo **velocidade**, **confiabilidade** e **qualidade**.
-
-### Principais Benefícios:
-
-  * **Redução do Tempo de Lançamento:** Entregas mais rápidas e frequentes.
-  * **Qualidade Assegurada:** Testes automatizados executados em cada alteração.
-  * **Implantações Consistentes:** Deploys repetíveis e menos propensos a erros manuais.
-  * **Feedback Imediato:** Desenvolvedores são notificados rapidamente sobre falhas no build ou nos testes.
+Este projeto visa implementar algumas funcionalidades através de três serviços, como uma aplicação frontend rodando a partir do S3, uma aplicação backend com alguma funcionalidade básica e a implementação de lambda para um processo programado em determinado horário. Foi aplicado no projeto a integração com o GitHub de forma manual, para manter um repositório ativo e na sequência, implementação do CI/CD utilizando o GitHub Actions.
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
 
@@ -23,23 +16,23 @@ A seguir, estão as principais tecnologias e ferramentas que compõem nossa pipe
 
 | Categoria | Ferramenta | Descrição |
 | :--- | :--- | :--- |
-| **Controle de Versão** | **Git / GitHub (ou GitLab/Bitbucket)** | Hospedagem e controle do código-fonte. |
-| **Orquestrador CI** | **[Ex: Jenkins, GitLab CI, GitHub Actions, CircleCI]** | Gerencia e executa a esteira de build e testes. |
-| **Linguagem/Runtime** | **[Ex: Python, Java, Node.js, .NET]** | Linguagem de desenvolvimento da aplicação. |
-| **Gerenciador de Pacotes** | **[Ex: Maven, npm, pip]** | Gerencia as dependências do projeto. |
-| **Testes** | **[Ex: JUnit, pytest, Jest]** | Frameworks para testes unitários e de integração. |
+| **Controle de Versão** | **Git / GitHub ** | Hospedagem e controle do código-fonte. |
+| **Orquestrador CI** | **[ GitHub Actions ]** | Gerencia e executa a esteira de build e testes. |
+| **Linguagem/Runtime** | **[Ex: HTML, CSS e javascript para a aplicação Frontend, Python para o Lambda e Node.js para a aplicação backend ]** | Linguagem de desenvolvimento da aplicação. |
+| **Gerenciador de Pacotes** | **[ npm, pip]** | Gerencia as dependências do projeto. |
+| **Testes** | **[ Ainda não foi implementado ferramentas de testes, mas utilizaremos Selenium]** | Frameworks para testes unitários e de integração. |
 
 ### **Entrega Contínua (CD)**
 
 | Categoria | Ferramenta | Descrição |
 | :--- | :--- | :--- |
 | **Containerização** | **Docker** | Empacota a aplicação e suas dependências em imagens. |
-| **Registro de Imagens** | **[Ex: Docker Hub, AWS ECR, Google Container Registry]** | Armazena as imagens Docker prontas para deploy. |
-| **Orquestração** | **Kubernetes (K8s)** | Gerencia e escala os contêineres em produção. |
-| **Nuvem/Infraestrutura** | **[Ex: AWS, Azure, Google Cloud]** | Plataforma de hospedagem do ambiente. |
-| **IaC (Infraestrutura como Código)** | **[Ex: Terraform, Ansible]** | Automatiza o provisionamento da infraestrutura. |
+| **Registro de Imagens** | **[ AWS ECR ]** | Armazena as imagens Docker prontas para deploy. |
+| **Orquestração** | **AWS EKS** | Gerencia e escala os contêineres em produção. |
+| **Nuvem/Infraestrutura** | **[ AWS ]** | Plataforma de hospedagem do ambiente. |
+| **IaC (Infraestrutura como Código)** | **[ Terraform ]** | Automatiza o provisionamento da infraestrutura. |
 
-## ⚙️ A Esteira de CI/CD
+## ⚙️ A Esteira de CI/CD (Após implementar o GitHub Actions)
 
 Nossa pipeline de CI/CD é estruturada nas seguintes fases:
 
@@ -66,22 +59,33 @@ Nossa pipeline de CI/CD é estruturada nas seguintes fases:
 
 ```
 .
-├── src/                          # Código-fonte da aplicação
-├── tests/                        # Arquivos de testes
-├── pipeline/                     # Scripts ou arquivos de configuração da esteira CI/CD
-│   ├── [ex: .gitlab-ci.yml]      # Definição da pipeline
-│   ├── Dockerfile                # Definição da imagem Docker
-│   └── terraform/                # Arquivos de Infraestrutura como Código
+├── app/                          # Código-fonte da aplicação frontend
+|   |__ index.html
+|   |__ error.html
+|   |__ script.js
+|   |__ styles.css                        
+├── backend/                      # Armazena os códigos do Dockerfile, package.json, server.js
+|   |__ public
+|   |__ Dockerfile
+|   |__ package.json
+|   |__ server.js
+├── terraform/                    # Scripts terraform e do lambda
+│   ├── kubernetes.tf             # Código do provisionamento do cluster EKS
+│   ├── lambda_function.py        # Código do lambda
+│   └── main.tf                   # Código para os buckets, permissões e outras coisas
+|   |__ outputs.tf                # Código para apresentar o output de site, alb e ecr
+|   |__ provider.tf               # Código com os providers da AWS e do Kubernetes
+|   |__ variables.tf              # Código com definição de variaveis
+|__ .gitignore                    # Código para que o github ignore partes do projeto que não devem
+|                                 # ficar expostas no repositorio
 └── README.md
 ```
 
-## 🧑‍💻 Contato e Suporte
+## 🧑‍💻 Implementações futuras
 
-Para dúvidas ou suporte, entre em contato com a equipe de DevOps:
+Para futuro próximo, espera implementar muitas outras coisas como Ansible, Slack, Testes unitários, e praticas SRE com observalidade em Prometheus/Grafana:
 
-  * **Email:** [devops@suaempresa.com]
-  * **Slack/Teams:** [\#canal-devops]
 
 -----
 
-*Este projeto é mantido pela Equipe de DevOps e Engenharia.*
+*Este projeto é mantido pela Equipe de DevOps.*
