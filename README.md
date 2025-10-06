@@ -16,9 +16,9 @@ A seguir, estão as principais tecnologias e ferramentas que compõem nossa pipe
 
 | Categoria | Ferramenta | Descrição |
 | :--- | :--- | :--- |
-| **Controle de Versão** | **Git / GitHub ** | Hospedagem e controle do código-fonte. |
+| **Controle de Versão** | **[ Git / GitHub ]** | Hospedagem e controle do código-fonte. |
 | **Orquestrador CI** | **[ GitHub Actions ]** | Gerencia e executa a esteira de build e testes. |
-| **Linguagem/Runtime** | **[Ex: HTML, CSS e javascript para a aplicação Frontend, Python para o Lambda e Node.js para a aplicação backend ]** | Linguagem de desenvolvimento da aplicação. |
+| **Linguagem/Runtime** | **[ HTML, CSS e javascript para a aplicação Frontend, Python para o Lambda e Node.js para a aplicação backend ]** | Linguagem de desenvolvimento da aplicação. |
 | **Gerenciador de Pacotes** | **[ npm, pip]** | Gerencia as dependências do projeto. |
 | **Testes** | **[ Ainda não foi implementado ferramentas de testes, mas utilizaremos Selenium]** | Frameworks para testes unitários e de integração. |
 
@@ -26,9 +26,9 @@ A seguir, estão as principais tecnologias e ferramentas que compõem nossa pipe
 
 | Categoria | Ferramenta | Descrição |
 | :--- | :--- | :--- |
-| **Containerização** | **Docker** | Empacota a aplicação e suas dependências em imagens. |
+| **Containerização** | **[ Docker ]** | Empacota a aplicação e suas dependências em imagens. |
 | **Registro de Imagens** | **[ AWS ECR ]** | Armazena as imagens Docker prontas para deploy. |
-| **Orquestração** | **AWS EKS** | Gerencia e escala os contêineres em produção. |
+| **Orquestração** | **[ AWS EKS ]** | Gerencia e escala os contêineres em produção. |
 | **Nuvem/Infraestrutura** | **[ AWS ]** | Plataforma de hospedagem do ambiente. |
 | **IaC (Infraestrutura como Código)** | **[ Terraform ]** | Automatiza o provisionamento da infraestrutura. |
 
@@ -84,6 +84,10 @@ Nossa pipeline de CI/CD é estruturada nas seguintes fases:
 ## 🧑‍💻 Implementações futuras
 
 Para futuro próximo, espera implementar muitas outras coisas como Ansible, Slack, Testes unitários, e praticas SRE com observalidade em Prometheus/Grafana:
+
+## 📄 Como implementar o código passo a passo
+
+
 
 
 -----
